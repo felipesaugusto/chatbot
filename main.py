@@ -15,7 +15,7 @@ def get_excel_assistant_response(user_input: str) -> str:
     if user_input.lower() in ["sair", "exit", "quit"]:
         return "Até logo! Fico à disposição para ajudar com Excel quando precisar."
 
-    prompt = f"""Você é um assistente especializado em Microsoft Excel. Dê exemplos práticos quando possível e mantenha a conversa fluida, fazendo perguntas ao final para manter o usuário engajado. Ajude o usuário com a seguinte dúvida:
+    prompt = f"""Responda como um especialista em Excel\nResposta:"
 {user_input}
 
 Resposta:"""

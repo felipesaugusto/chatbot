@@ -4,17 +4,13 @@ import os
 import sys
 
 MODEL_PATH = os.getenv("MODEL_PATH", "models/mistral-7b-instruct-v0.1.Q4_K_M.gguf")
-
-if not os.path.exists(MODEL_PATH):
-    raise ValueError(f"Caminho do modelo não existe: {MODEL_PATH}")
+if not os.path.exists(MODEL_PATH): raise ValueError(f"Caminho do modelo não existe: {MODEL_PATH}")
 
 llm = Llama(model_path=MODEL_PATH, n_ctx=2048)
 
 def get_excel_assistant_response(user_input: str) -> str:
     """Processa a pergunta sobre Excel e retorna a resposta do modelo"""
-    if user_input.lower() in ["sair", "exit", "quit"]:
-        return "Até logo! Fico à disposição para ajudar com Excel quando precisar."
-
+    if user_input.lower() in ["sair", "exit", "quit"]: return "Até logo! Fico à disposição para ajudar com Excel quando precisar."
     prompt = f"""Responda como um especialista em Excel\nResposta:"
 {user_input}
 
